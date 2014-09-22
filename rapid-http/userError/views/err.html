@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>render by ejs</title>
+<style type="text/css">
+.message{
+	color: red;
+}
+.stack{
+	color: blue;
+	line-height: 25px;
+}
+</style>
+</head>
+<body>
+	<h1>Sorry, something error</h1>
+	<h2 class="message">
+		Error Message: <%= err.message %>
+	</h2>
+	<h3>Error stack</h3>
+<pre class="stack">
+<%= err.stack %>
+</pre>
+</body>
+</html>
