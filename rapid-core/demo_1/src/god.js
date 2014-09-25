@@ -5,7 +5,7 @@
 var _extend = require("util")._extend;
 var EventEmitter = require("events").EventEmitter;
 
-var faves = ["吃饭","打麻将","逛公园","写代码","借钱"];
+var faves = ["吃饭","打麻将","逛公园","写代码","黑中介"];
 
 var whatYouSay = /^(.*):(.*)$/;
 
@@ -31,7 +31,7 @@ var Human = function(name){
         
         if(!rand){
             debugger;
-            say = "借钱";
+            say = "黑中介";
         }else{
             say = faves[~~(Math.random() * faves.length)]
         }
@@ -69,8 +69,8 @@ Human.prototype = _extend(new EventEmitter(),{
             case "打麻将" :
                 me.talk("不会");
                 break;
-            case "借钱":
-                me.talk("要钱没有,要命一条");
+            case "黑中介":
+                me.talk("打死!!丫的!");
                 break;
 //            default:
 //                log.dev("i don't understand!!, ignore....");
@@ -99,8 +99,8 @@ rapid.plugin.define("god",['rapid-log'],function(log,cb){
         var what = whatYouSay.exec(content);
         
         if(what){
-            if(what[2] == "借钱"){
-                log.warn("刚才谁借钱??? %s?? 上帝想了2秒,然后.....",what[1]);
+            if(what[2] == "黑中介"){
+                log.warn("谁是黑中介??? %s?? 上帝想了2秒,然后.....",what[1]);
                 setTimeout(function(){
                     var p = peoples[what[1]];
                     p.die();
@@ -115,17 +115,9 @@ rapid.plugin.define("god",['rapid-log'],function(log,cb){
     });
     
     cb(null,{
-        create:function(name,type){
-            type = type || "human";
-            switch(type){
-                case "house":
-                    log.dev("GOD : look !! this is a human, named %s...HA.HA.HA.HA...", name);
-                    console.log("i don't");
-                    return false;
-                case "human":
-                    log.dev("look !! this is a human, named %s....", name);
-                    return peoples[name] = peoples[name] || new Human(name);
-            }
+        create:function(name){
+            log.dev("look !! this is a human, named %s....", name);
+            return peoples[name] = peoples[name] || new Human(name);
         }
     });
 });
