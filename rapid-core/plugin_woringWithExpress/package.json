@@ -1,0 +1,31 @@
+{
+  "name": "demo1",
+  "version": "0.0.1",
+  "description": "show how to use the rapid-core",
+  "main": "helloworld.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "clouda+",
+    "javascript",
+    "cloudajs",
+    "webapp",
+    "framework",
+    "web",
+    "app",
+    "api",
+    "core"
+  ],
+  "repository": {
+  },
+  "author": "wangsu <wangsu01@baidu.com>",
+  "contributors": [
+    "huangxin <huangxin03@baidu.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "rapid-core": "*",
+    "express":"*"
+  }
+}
