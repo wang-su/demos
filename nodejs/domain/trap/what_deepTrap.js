@@ -21,6 +21,7 @@ setTimeout(function(){
     e1.emit("originData","error");
 },2000);
 
+// 导出内容不再是EventEmitter
 module.exports = {
     on:function(){
         e1.on.apply(e1,arguments);
